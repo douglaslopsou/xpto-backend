@@ -1,0 +1,574 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "XPTO API- Documentation",
+    "description": "API documentation for XPTO API",
+    "version": "1.0.0",
+    "contact": {
+      "email": "douglaslopsou@gmail.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3333",
+      "description": "Local server"
+    }
+  ],
+  "paths": {
+    "/products": {
+      "post": {
+        "summary": "Create a new product",
+        "description": "Create a new product",
+        "tags": ["products"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Product"
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Product name already exists"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Get products",
+        "description": "Get products",
+        "tags": ["products"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Product"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/{id}": {
+      "put": {
+        "summary": "Edit a product",
+        "description": "Edit a product",
+        "tags": ["products"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Product ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Product"
+              }
+            }
+          }
+        },
+        "responses": { 
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Product does not exists"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a product",
+        "description": "Delete a product",
+        "tags": ["products"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Product ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": { 
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Product does not exists"
+          }
+        }
+
+      }
+    },
+    "/customers": {
+      "post": {
+        "summary": "Create a new customer",
+        "description": "Create a new customer",
+        "tags": ["customers"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Customer"
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Customer name already exists"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Customer"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Get customers",
+        "description": "Get customers",
+        "tags": ["customers"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Customer"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Customer"
+                }
+              }
+            }
+          }
+        }
+
+      }
+    },
+    "/customers/{id}": {
+      "put": {
+        "summary": "Edit a customer",
+        "description": "Edit a customer",
+        "tags": ["customers"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Customer CNPJ or CPF",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Customer"
+              }
+            }
+          }
+        },
+        "responses": { 
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Customer"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Customer does not exists"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a customer",
+        "description": "Delete a customer",
+        "tags": ["customers"],
+        "parameters": [
+          {
+            "name": "CNPJ or CPF",
+            "in": "path",
+            "description": "Customer CNPJ or CPF",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": { 
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Customer"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Customer does not exists"
+          }
+        }
+      }
+    },
+    "/purchases": {
+      "post": {
+        "summary": "Create a new purchase",
+        "description": "Create a new purchase",
+        "tags": ["purchases"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Purchase"
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Customer does not exists"
+          },
+          "400": {
+            "description": "One or more products does not exists"
+          },
+          "400": {
+            "description": "Amount is not avaliable in stock, product ${product.name}, disponivel: ${product.amount_in_stock}"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Purchase"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Get purchases",
+        "description": "Get purchases",
+        "tags": ["purchases"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Purchases"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Customer"
+                }
+              }
+            }
+          }
+        }
+
+      }
+    },
+    "/purchases/{id}": {
+      "put": {
+        "summary": "Edit a purchase",
+        "description": "Edit a purchase",
+        "tags": ["purchases"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Purchase"
+              }
+            }
+          }
+        },
+        "responses": { 
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Customer"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Customer does not exists"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a purchase",
+        "description": "Delete a purchase",
+        "tags": ["purchases"],
+        "responses": { 
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Purchase"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/purchases/byCustomer/{id}": {
+      "get": {
+        "summary": "Get purchases by Customer id",
+        "description": "Get purchases by Customer id",
+        "tags": ["purchases"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Customer ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": { 
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Customer"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Customer does not exists"
+          }
+        }
+      }
+    },
+    "/purchases/byCustomerAndDate": {
+      "get": {
+        "summary": "Get purchases by Customer id",
+        "description": "Get purchases by Customer id",
+        "tags": ["purchases"],
+        "parameters": [
+          {
+            "name": "startDate",
+            "in": "query",
+            "description": "Start date to filter purchase date",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "description": "End date to filter purchase date",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "customer_id",
+            "in": "query",
+            "description": "Customer id to filter in purchases",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": { 
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Purchase"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Product": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Product 1"
+          },
+          "description": {
+            "type": "string",
+            "example": "Product 1 description"
+          },
+          "amount_in_stock": {
+            "type": "integer",
+            "example": 10
+          },
+          "price": {
+            "type": "number",
+            "example": 10.00
+          }
+        }
+      },
+      "Customer": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "1"
+          },
+          "cnpj_cpf": {
+            "type": "string",
+            "example": "12345"
+          },
+          "name": {
+            "type": "string",
+            "example": "Douglas Lopes"
+          },
+          "address": {
+            "type": "string",
+            "example": "Rua Teste 1"
+          },
+          "email": {
+            "type": "string",
+            "example": "teste@teste.com"
+          },
+          "obs": {
+            "type": "string",
+            "example": "1"
+          },
+          "logo": {
+            "type": "string",
+            "example": "1"
+          }
+        }
+      },
+      "Purchase": {
+        "type": "object",
+        "properties": {
+          "purchaseDate": {
+            "type": "Date",
+            "example": "2022-07-20"
+          },
+          "customerDoc": {
+            "type": "string",
+            "example": "12345"
+          },
+          "items": {
+            "type": "array",
+            "example": [
+              {
+                "productId": "fd5dd247-218a-4d68-983c-96927126aa68",
+                "amount": 90
+              },
+              {
+                "productId": "fd5dd247-218a-4d68-983c-96927126aa68",
+                "amount": 99
+              }
+            ]
+          },
+          "address": {
+            "type": "string",
+            "example": "Rua Teste 1"
+          },
+          "email": {
+            "type": "string",
+            "example": "teste@teste.com"
+          },
+          "obs": {
+            "type": "string",
+            "example": "1"
+          },
+          "logo": {
+            "type": "string",
+            "example": "1"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+node_modules
+comandosmigration.txt
+dist
+.vscode
+bam.yml

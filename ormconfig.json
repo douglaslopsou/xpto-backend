@@ -1,0 +1,24 @@
+{
+  "type": "postgres",
+  "host": "motty.db.elephantsql.com",
+  "port": 5432,
+  "username": "zwikzaqy",
+  "password": "4iGObAS8qcP6HAWB7hHpRUYM_oQrOfrj",
+  "database": "zwikzaqy",
+  "logging": true,
+  "ssl": true,
+  "extra": {
+    "ssl": {
+      "rejectUnauthorized": false
+    }
+  },
+  "entities": [
+    "./src/models/*.ts"
+  ],
+  "migrations": [
+    "./src/database/migrations/*.ts"
+  ],
+  "cli": {
+    "migrationsDir": "./src/database/migrations"
+  }
+}
