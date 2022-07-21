@@ -22,7 +22,7 @@ O gerente de projetos conversou com as partes interessadas e levantou o seguinte
 
 ### O projeto foi documentado utilizando o Swagger
 
-- Para acessar a documentacao basta ir na url http://localhost:3333/api-docs.
+- Para acessar a documentacao basta acessar a url http://localhost:3333/api-docs.
 
 #### Node JS, Typescript, Postgres, TypeORM, ElephantSQL
 
